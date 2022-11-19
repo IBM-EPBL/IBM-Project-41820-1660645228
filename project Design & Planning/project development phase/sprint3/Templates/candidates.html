@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Recommendation System</title>
+    <link rel="stylesheet" href="viewjob.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+   {% block body %}
+    <div class = "top">
+            <a  href="about2.html">About</a>
+        <a href="Candidates.html">Applied</a>
+        <a  href="Add_jobs.html">Add Job</a>
+        <h1>Admin Dashboard</h1>
+        <img src = "{{ url_for('static', filename='logo1.png') }}" height="80" >
+        </div>
+        <div class = "container1">
+            <table id="customers">
+
+                <tr>
+                  <th>ID</th>
+                  <th>application</th>
+                  <th>name</th>
+                  <th>phone</th>
+                  <th>email</th>
+                    <th>skills</th>
+                    <th>experience</th>
+                </tr>
+                  {% for apply in appy %}
+                <tr>
+                  <td>{{ apply.id }}</td>
+                  <td>{{ apply.application}}</td>
+                  <td>{{ apply.name}}</td>
+                  <td>{{ apply.phone }}</td>
+                  <td>{{ apply.email}}</td>
+                    <td>{{apply.skills}}</td>
+                    <td>{{apply.experience}}</td>
+                </tr>
+                 {% endfor %}
+              </table>
+
+        </div>
+{% endblock %}
+
+
+
+
+
+
+
+</body>
+</html>
